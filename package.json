@@ -1,0 +1,22 @@
+{
+  "name": "designerex-cypress-lovable-updated",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cypress E2E automation framework for the Designerex Lovable platform (POM), with Excel test-case traceability and automatic result/status tracking.",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run",
+    "test:headed": "cypress run --headed",
+    "test:stripe": "node scripts/run-and-update.js stripe",
+    "test:credit": "node scripts/run-and-update.js credit",
+    "test:status": "node cypress/utils/excelUpdater.js stripe",
+    "test:status:credit": "node cypress/utils/excelUpdater.js credit"
+  },
+  "devDependencies": {
+    "cypress": "^15.17.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mochawesome": "^7.1.3",
+    "exceljs": "^4.4.0"
+  }
+}

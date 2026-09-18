@@ -1,0 +1,386 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DESIGNEREX DESIGN SYSTEM
+ * Editorial fashion. Warm ivory page, black structural surfaces, magenta interactive.
+ * Display: GFS Didot (H1) + Bodoni Moda (H2/H3). Italic emphasis: Cormorant Garamond.
+ * Body: Inter — serifs are display only.
+ */
+
+@theme inline {
+  --font-display: "GFS Didot", "Bodoni Moda", Didot, "Times New Roman", serif;
+  --font-heading: "Bodoni Moda", Didot, "Times New Roman", serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-cream: var(--cream);
+  --color-bg-tint: var(--bg-tint);
+  --color-surface: var(--surface);
+  --color-black: var(--black);
+  --color-magenta: var(--magenta);
+  --color-rose: var(--rose);
+  --color-pink: var(--magenta);
+  --color-pink-foreground: var(--pink-foreground);
+  --color-pink-soft: var(--bg-tint);
+  --color-success-bg: var(--success-bg);
+  --color-success-ink: var(--success-ink);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Designerex palette (deck-tuned) */
+  --ink: #141414;
+  --ink-muted: #6F6A66;
+  --ink-foreground: #FFFFFF;
+
+  --bg: #F7F2EC;
+  --bg-tint: #FBEFEF;
+  --surface: #FFFFFF;
+
+  --cream: #F7F2EC;
+  --black: #0B0B0B;
+  --magenta: #EC1E63;
+  --rose: #D98A98;
+  --pink-foreground: #FFFFFF;
+
+  --success-bg: #E7F3EC;
+  --success-ink: #2E7D52;
+
+  /* Mapped shadcn tokens */
+  --background: #F7F2EC;
+  --foreground: #141414;
+
+  --card: #FFFFFF;
+  --card-foreground: #141414;
+  --popover: #FFFFFF;
+  --popover-foreground: #141414;
+
+  --primary: #EC1E63;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #FBEFEF;
+  --secondary-foreground: #141414;
+  --muted: #F1ECE6;
+  --muted-foreground: #6F6A66;
+  --accent: #FBEFEF;
+  --accent-foreground: #141414;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #FFFFFF;
+  --border: #EAE3DA;
+  --input: #EAE3DA;
+  --ring: #EC1E63;
+
+  --chart-1: #EC1E63;
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: #0B0B0B;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #EC1E63;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1A1A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #1F1F1F;
+  --sidebar-ring: #EC1E63;
+}
+
+.dark {
+  --background: #141414;
+  --foreground: #F7F2EC;
+  --card: #1C1C1C;
+  --card-foreground: #F7F2EC;
+  --popover: #1C1C1C;
+  --popover-foreground: #F7F2EC;
+  --primary: #EC1E63;
+  --primary-foreground: #FFFFFF;
+  --secondary: #232323;
+  --secondary-foreground: #F7F2EC;
+  --muted: #232323;
+  --muted-foreground: #B7B0A8;
+  --accent: #232323;
+  --accent-foreground: #F7F2EC;
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255,255,255,0.1);
+  --input: rgba(255,255,255,0.15);
+  --ring: #EC1E63;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body, #root {
+    width: 100%;
+    min-width: 0;
+  }
+  img, video, canvas, svg {
+    max-width: 100%;
+  }
+  input, select, textarea {
+    min-width: 0;
+    max-width: 100%;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    color: var(--color-ink);
+  }
+  h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+  h4, h5 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--color-ink);
+  }
+}
+
+@media (max-width: 767px) {
+  /* Flex/grid children default to min-width:auto, so one desktop-sized child can
+     widen an entire page even when the shell itself is width-constrained. */
+  main, main section, main article, main header,
+  main div, main form, main fieldset,
+  main > *, main section > *, main article > *, main header > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-heading { font-family: var(--font-heading); }
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans { font-family: var(--font-sans); }
+  .tracking-wider-display { letter-spacing: 0.14em; }
+  .text-emphasis {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-rose);
+  }
+}
+
+@layer components {
+  .form-input {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    border-radius: 0.375rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+    transition: border-color 150ms, box-shadow 150ms;
+  }
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-magenta);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-magenta) 18%, transparent);
+  }
+
+  /* Primary marketing / checkout CTA — solid black */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    padding: 0.7rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: opacity 150ms, transform 150ms;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Dashboard primary action — magenta */
+  .btn-magenta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-magenta);
+    color: #FFFFFF;
+    padding: 0.7rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: opacity 150ms;
+  }
+  .btn-magenta:hover { opacity: 0.92; }
+  .btn-magenta:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Legacy alias — black ink CTA */
+  .btn-ink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    padding: 0.7rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 150ms;
+  }
+  .btn-ink:hover { opacity: 0.9; }
+
+  /* Secondary — surface w/ border */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    border: 1px solid var(--color-border);
+    padding: 0.65rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 150ms, color 150ms, border-color 150ms;
+  }
+  .btn-outline:hover {
+    border-color: var(--color-ink);
+  }
+  .btn-outline:disabled,
+  .btn-outline[aria-disabled="true"],
+  .btn-primary[aria-disabled="true"],
+  .btn-magenta[aria-disabled="true"],
+  .btn-ink:disabled,
+  .btn-ink[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Soft pill — filters */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-tint);
+    color: var(--color-ink);
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: background-color 150ms, border-color 150ms;
+  }
+  .btn-pill:hover { border-color: var(--color-rose); }
+
+  .input {
+    display: block;
+    width: 100%;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    transition: border-color 150ms, box-shadow 150ms;
+  }
+  .input:focus {
+    outline: none;
+    border-color: var(--color-magenta);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-magenta) 15%, transparent);
+  }
+  .input::placeholder { color: var(--color-muted-foreground); }
+
+  /* Card surface */
+  .card-surface {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04), 0 4px 16px rgba(20, 20, 20, 0.04);
+  }
+
+  /* Badges */
+  .badge-success {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-success-bg);
+    color: var(--color-success-ink);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* Info callout */
+  .callout-info {
+    background-color: var(--color-bg-tint);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .callout-info [data-callout-icon] { color: var(--color-magenta); flex-shrink: 0; }
+  .callout-info [data-callout-title] {
+    color: var(--color-magenta);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .callout-info [data-callout-body] {
+    color: var(--color-ink-muted);
+    font-size: 0.875rem;
+    margin-top: 0.15rem;
+  }
+}
+

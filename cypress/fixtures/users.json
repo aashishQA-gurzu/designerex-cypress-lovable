@@ -1,0 +1,6 @@
+{
+  "_note": "Actual credential values live only in cypress.config.js's env block (and can be overridden via CYPRESS_<name> env vars). This file documents which role maps to which env var name, so specs/pages never hardcode a role's credentials directly.",
+  "renter": { "emailEnvVar": "renterEmail", "passwordEnvVar": "renterPassword" },
+  "lender": { "emailEnvVar": "lenderEmail", "passwordEnvVar": "lenderPassword" },
+  "admin": { "emailEnvVar": "adminEmail", "passwordEnvVar": "adminPassword" }
+}
